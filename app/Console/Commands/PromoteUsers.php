@@ -39,42 +39,12 @@ class PromoteUsers extends Command
      */
     public function handle()
     {
-//        DB::beginTransaction();
+        DB::beginTransaction();
+        //Attach upline to new users & promote assert level 1 condition
         $this->handleFreshUsers();
 
-        $users = User::where(function($query) {
-           $query->whereNotNull('upline_id')
-               ->whereNotNull('level_id')
-               ->whereNotNull('level_assert')
-               ->wherePayment(1)
-               ->whereNotIn('id', [1]);
-        })->get();
-
-        foreach($users as &$user){
-            $steps = 0;
-            $assertLevel = $this->assertLevel($user);
-            if($assertLevel == 1) {
-                if($this->reqMatch($user) == 0) {
-                    $this->stepCheck($user, $steps, 1);
-                    $this->info("1L:{$user->id} | SU:{$steps} "); //SU->Steps-users //1L -> Level 1
-                    if($steps == 25) {
-                        $this->levelUp($user, 2);
-                    }
-                }
-            }
-            elseif($assertLevel == 2) {
-                $steps = 0;
-                if($this->reqMatch($user) == 0) {
-                    $this->stepCheck($user, $steps, 2);
-                    $this->info("2L:{$user->id} | SU:{$steps} "); //SU->Steps-users //1L -> Level 1
-                    if($steps >= 125) {
-                        $this->levelUp($user, 3);
-                    }
-                }
-            }
-//            break;
-        }
-
+        //performs upgrade for users in level 1-2
+        $this->advanceUserLevel();
     }
 
     protected function levelUp(User &$user, $to)
@@ -96,6 +66,7 @@ class PromoteUsers extends Command
     }
 
     /**
+     * Level requirement
      * @param User $user
      * @return int
      */
@@ -105,6 +76,7 @@ class PromoteUsers extends Command
     }
 
     /**
+     * Confirm what level user is
      * @param User $user
      * @return int
      */
@@ -134,8 +106,8 @@ class PromoteUsers extends Command
     }
 
     /**
-     * @param $LZUU
-     * @return mixed
+     * This handles all new users
+     * perform attaching user to an upline
      */
     protected function handleFreshUsers()
     {
@@ -182,7 +154,6 @@ class PromoteUsers extends Command
 
                     if ($this->reqMatch($LZUU) == 0) {
                         $this->levelUp($LZUU, 1);
-//                    $this->info($this->reqMatch($LZUU));
                     }
                 } elseif($assertLevel == -1) {
                     $this->info("Assert Level: ". $assertLevel);
@@ -193,10 +164,11 @@ class PromoteUsers extends Command
     }
 
     /**
-     * @param $DLUsers
+     * Recursive check downline users
      * @param $user
      * @param $steps
-     * @return array
+     * @param $loop
+     * @return int
      */
     protected function stepCheck(&$user, &$steps, $loop)
     {
@@ -211,16 +183,53 @@ class PromoteUsers extends Command
             })->get();
         };
 
+        //get Downline users
         $dlUsers = $DLUsers($user);
         foreach ($dlUsers as &$DLU) {
-//                        $remain = $this->reqMatch($DLU);
             if ($this->reqMatch($DLU) == 0) {
                 $steps += 5;
                 $this->stepCheck($DLU, $steps, $loop-1);
             }
-//                        $this->info("1L{$user->id} : DL{$DLU->id} : R{$remain} : S{$steps} ");
         }
 
         return $steps;
+    }
+
+
+    /**
+     * Advance user level based on downlines requirement
+     */
+    protected function advanceUserLevel()
+    {
+        $users = User::where(function ($query) {
+            $query->whereNotNull('upline_id')
+                ->whereNotNull('level_id')
+                ->whereNotNull('level_assert')
+                ->wherePayment(1)
+                ->whereNotIn('id', [1]);
+        })->get();
+
+        foreach ($users as &$user) {
+            $steps = 0;
+            $assertLevel = $this->assertLevel($user);
+            if ($assertLevel == 1) {
+                if ($this->reqMatch($user) == 0) {
+                    $this->stepCheck($user, $steps, 1);
+                    $this->info("1L:{$user->id} | SU:{$steps} "); //SU->Steps-users //1L -> Level 1
+                    if ($steps == 25) {
+                        $this->levelUp($user, 2);
+                    }
+                }
+            } elseif ($assertLevel == 2) {
+                $steps = 0;
+                if ($this->reqMatch($user) == 0) {
+                    $this->stepCheck($user, $steps, 2);
+                    $this->info("2L:{$user->id} | SU:{$steps} "); //SU->Steps-users //1L -> Level 1
+                    if ($steps >= 125) {
+                        $this->levelUp($user, 3);
+                    }
+                }
+            }
+        }
     }
 }
