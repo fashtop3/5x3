@@ -42,9 +42,63 @@ class PromoteUsers extends Command
 //        DB::beginTransaction();
         $this->handleFreshUsers();
 
+        $users = User::where(function($query) {
+           $query->whereNotNull('upline_id')
+               ->whereNotNull('level_id')
+               ->whereNotNull('level_assert')
+               ->wherePayment(1)
+               ->whereNotIn('id', [1]);
+        })->get();
+
+        foreach($users as &$user){
+            $steps = 0;
+            $assertLevel = $this->assertLevel($user);
+            if($assertLevel == 1) {
+                if($this->reqMatch($user) == 0) {
+                    $this->stepCheck($user, $steps, 1);
+                    $this->info("1L:{$user->id} | SU:{$steps} "); //SU->Steps-users //1L -> Level 1
+                    if($steps == 25) {
+                        $this->levelUp($user, 2);
+                    }
+                }
+            }
+            elseif($assertLevel == 2) {
+                $steps = 0;
+                if($this->reqMatch($user) == 0) {
+                    $this->stepCheck($user, $steps, 2);
+                    $this->info("2L:{$user->id} | SU:{$steps} "); //SU->Steps-users //1L -> Level 1
+                    if($steps >= 125) {
+                        $this->levelUp($user, 3);
+                    }
+                }
+            }
+//            break;
+        }
 
     }
 
+    protected function levelUp(User &$user, $to)
+    {
+        if($to == 1) {
+            $user->level_id = $to;
+            $user->level_assert = 0;
+        }
+        elseif($to == 2) {
+            $user->level_id = $to;
+            $user->level_assert = 1;
+        }
+        elseif($to == 3){
+            $user->level_id = $to;
+            $user->level_assert = 2;
+        }
+
+        $user->save();
+    }
+
+    /**
+     * @param User $user
+     * @return int
+     */
     protected function reqMatch(User &$user)
     {
         return 5 - User::where('upline_id', $user->id)->get()->count();
@@ -127,9 +181,7 @@ class PromoteUsers extends Command
                     }
 
                     if ($this->reqMatch($LZUU) == 0) {
-                        $LZUU->level_assert = 0;
-                        $LZUU->level_id = 1;
-                        $LZUU->save();
+                        $this->levelUp($LZUU, 1);
 //                    $this->info($this->reqMatch($LZUU));
                     }
                 } elseif($assertLevel == -1) {
@@ -138,5 +190,37 @@ class PromoteUsers extends Command
                 }
             }
         }
+    }
+
+    /**
+     * @param $DLUsers
+     * @param $user
+     * @param $steps
+     * @return array
+     */
+    protected function stepCheck(&$user, &$steps, $loop)
+    {
+        if($loop == 0)
+            return $steps;
+
+        $DLUsers = function (User &$user) {
+            return User::where(function ($query) use(&$user) {
+                $query->where('upline_id', $user->id)
+                    ->wherePayment(1)
+                    ->whereNotIn('id', [1, $user->id]);
+            })->get();
+        };
+
+        $dlUsers = $DLUsers($user);
+        foreach ($dlUsers as &$DLU) {
+//                        $remain = $this->reqMatch($DLU);
+            if ($this->reqMatch($DLU) == 0) {
+                $steps += 5;
+                $this->stepCheck($DLU, $steps, $loop-1);
+            }
+//                        $this->info("1L{$user->id} : DL{$DLU->id} : R{$remain} : S{$steps} ");
+        }
+
+        return $steps;
     }
 }
