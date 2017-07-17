@@ -27,10 +27,8 @@ class CreateUsersTable extends Migration
             $table->foreign('upline_id')
                 ->references('id')
                 ->on('users');
-            $table->integer('level_assert')->unsigned();
-            $table->foreign('level_assert')
-                ->references('id')
-                ->on('levels');
+            $table->integer('level_assert')->nullable()->unsigned();
+
             $table->boolean('payment')->default(0);
             $table->boolean('status')->default(1);
             $table->rememberToken();
