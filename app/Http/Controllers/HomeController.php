@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = Auth::user();
+        if($user->upline_id){
+          $upline =  User::find($user->upline_id);
+            return view('home', compact(['user', 'upline']));
+        }
+        return view('home', compact('user'));
     }
 }
