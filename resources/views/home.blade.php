@@ -8,6 +8,7 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
+                    <br>
                     @if($user->payment == false)
                         <p>Welcome to Glochis Platform</p>
                         <a href="" class="btn btn-success">Activate Account</a>
