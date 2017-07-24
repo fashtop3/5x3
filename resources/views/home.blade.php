@@ -8,13 +8,11 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
+                    <p>Welcome to Glochis Platform</p>
                     @if($user->payment == false)
-                        <p>Welcome to Glochis Platform</p>
-                        <a href="" class="btn btn-success">Activate Account</a>
-                    @elseif($upline)
+                        <a href="{{ route('activate') }}" class="btn btn-success">Activate Account</a>
+                    @elseif(isset($upline))
                         <p>Upline: {{$upline->name}}</p>
-                    @else
-
                     @endif
                 </div>
             </div>
