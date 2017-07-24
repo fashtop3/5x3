@@ -10,8 +10,17 @@
                 <div class="panel-body">
                     <br>
                     @if($user->payment == false)
-                        <p>Welcome to Glochis Platform</p>
-                        <a href="" class="btn btn-success">Activate Account</a>
+                        <div class="col-md-6">
+                            <p>Already Made Payment?</p>
+                            <a href="" class="btn btn-success">Upload Teller</a>
+                        </div>
+
+                        <div class="col-md-6">
+                            <p>Payment Details</p>
+                            <p>XYZ BANK</p>
+                        </div>
+
+
                     @elseif($upline)
                         <p>Upline: {{$upline->name}}</p>
                     @else
