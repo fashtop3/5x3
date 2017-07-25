@@ -9,8 +9,19 @@
 
                 <div class="panel-body">
                     <p>Welcome to Glochis Platform</p>
+                    <br>
                     @if($user->payment == false)
-                        <a href="{{ route('activate') }}" class="btn btn-success">Activate Account</a>
+                        <div class="col-md-6">
+                            <p>Already Made Payment?</p>
+                            <a href="{{ route('activate') }}" class="btn btn-success">Upload Teller</a>
+                        </div>
+
+                        <div class="col-md-6">
+                            <p>Payment Details</p>
+                            <p>XYZ BANK</p>
+                        </div>
+
+
                     @elseif(isset($upline))
                         <p>Upline: {{$upline->name}}</p>
                     @endif
