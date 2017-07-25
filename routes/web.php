@@ -18,4 +18,4 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/teller', 'TellerController@index')->name('teller');
+Route::post('/teller', 'TellerController@store')->name('teller');

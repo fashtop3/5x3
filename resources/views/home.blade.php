@@ -12,19 +12,42 @@
                     <br>
                     @if($user->payment == false)
                         <div class="col-md-6">
-                            <p>Already Made Payment?</p>
-                            <form action="{{ route('teller') }}" method="post">
-                                {{--<button type="file" class="btn btn-success">Upload Teller</button>--}}
-                                <label class="control-label">Select File</label>
-                                <input id="input-4" name="input4[]" type="file" multiple class="file-loading">
-                            </form>
-
+                            @if(is_null(auth()->user()->receipt()->first()))
+                                <p>Already Made Payment?</p>
+                                <div class="row col-md-12">
+                                    <form class="form-horizontal" action="{{ route('teller') }}" method="POST" enctype="multipart/form-data">
+                                        {{ csrf_field() }}
+                                        <div class="form-group">
+                                            <div class="col-md-6">
+                                                <input name="receipt" type="file" class="form-control" />
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button class="btn btn-success" type="submit">Upload</button>
+                                            </div>
+                                            <div class="col-md-12 alert">
+                                                @if ($errors->has('receipt'))
+                                                    <span class="help-block">
+                                                <strong>{{ $errors->first('receipt') }}</strong>
+                                            </span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            @endif
+                            @if (Session::has('r-upload'))
+                                <div class="col-md-12 alert alert-success">
+                                    <strong>{{ session('r-upload') }}</strong>
+                                </div>
+                            @endif
                         </div>
 
-                        <div class="col-md-6">
-                            <p>Payment Details</p>
-                            <p>XYZ BANK</p>
-                        </div>
+                        @if(is_null(auth()->user()->receipt()->first()))
+                            <div class="col-md-6">
+                                <p>Payment Details</p>
+                                <p>XYZ BANK</p>
+                            </div>
+                        @endif
 
 
                     @elseif(isset($upline))
@@ -43,18 +66,17 @@
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <tr>
-                                <th>ID</th>
-                                <th>Upload</th>
-                                <th>Confirmed</th>
-                                <th>Date Added</th>
-                                <th>Date Modified</th>
+                                <th class="text-center">ID</th>
+                                <th class="text-center">Confirmed</th>
+                                <th class="text-center">Date Added</th>
+                                <th></th>
                             </tr>
                             <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                            <tr class="text-center">
+                                <td>{{ $receipt->id }}</td>
+{{--                                <td>{{ $receipt->upload }}</td>--}}
+                                <td>{!! $receipt->confirmed ? '<span class="label label-success">Yes</span>' : '<span class="label label-danger">No</span>' !!}</td>
+                                <td>{{ $receipt->created_at->diffForHumans() }}</td>
                                 <td></td>
                             </tr>
                             </tbody>
@@ -68,9 +90,4 @@
 @endsection
 
 @section('script')
-    <script>
-        $(document).on('ready', function() {
-            $("#input-4").fileinput({showCaption: false});
-        });
-    </script>
 @endsection

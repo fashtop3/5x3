@@ -26,10 +26,11 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        if($user->upline_id){
-          $upline =  User::find($user->upline_id);
-            return view('home', compact(['user', 'upline']));
+        $receipt = auth()->user()->receipt()->first();
+        if ($user->upline_id) {
+            $upline = User::find($user->upline_id);
+            return view('home', compact(['user', 'upline', 'receipt']));
         }
-        return view('home', compact('user'));
+        return view('home', compact(['user', 'upline', 'receipt']));
     }
 }

@@ -43,4 +43,13 @@ class User extends Authenticatable
     {
         $this->notify(new ResetPasswordNotification($token));
     }
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function receipt()
+    {
+        return $this->hasOne('App\Receipt');
+    }
 }

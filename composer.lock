@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1fff8f2a807626ed76286609f58cc83d",
-    "content-hash": "338b0a5a6fa5eb30d867914594f43162",
+    "hash": "04c05211c887c673d136d03d3263572d",
+    "content-hash": "9f15207a903d8390c17f7b762ec17386",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -953,6 +953,50 @@
             "time": "2017-05-14 14:47:48"
         },
         {
+            "name": "ezyang/htmlpurifier",
+            "version": "v4.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ezyang/htmlpurifier.git",
+                "reference": "d0c392f77d2f2a3dcf7fcb79e2a1e2b8804e75b2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/d0c392f77d2f2a3dcf7fcb79e2a1e2b8804e75b2",
+                "reference": "d0c392f77d2f2a3dcf7fcb79e2a1e2b8804e75b2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "HTMLPurifier": "library/"
+                },
+                "files": [
+                    "library/HTMLPurifier.composer.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL"
+            ],
+            "authors": [
+                {
+                    "name": "Edward Z. Yang",
+                    "email": "admin@htmlpurifier.org",
+                    "homepage": "http://ezyang.com"
+                }
+            ],
+            "description": "Standards compliant HTML filter written in PHP",
+            "homepage": "http://htmlpurifier.org/",
+            "keywords": [
+                "html"
+            ],
+            "time": "2016-07-16 12:58:58"
+        },
+        {
             "name": "guzzlehttp/psr7",
             "version": "1.4.2",
             "source": {
@@ -1238,6 +1282,58 @@
                 "translation"
             ],
             "time": "2017-06-30 11:51:03"
+        },
+        {
+            "name": "kordy/ticketit",
+            "version": "v0.3.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thekordy/ticketit.git",
+                "reference": "df31380bed44eb09583628549554131726dca17c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thekordy/ticketit/zipball/df31380bed44eb09583628549554131726dca17c",
+                "reference": "df31380bed44eb09583628549554131726dca17c",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": "^2.5",
+                "illuminate/support": "^5.1",
+                "jenssegers/date": "^3.0",
+                "laravel/framework": "^5.1",
+                "laravelcollective/html": "^5.1",
+                "mews/purifier": "^2.0",
+                "yajra/laravel-datatables-oracle": "^6.0|^7.0"
+            },
+            "type": "laravel-package",
+            "autoload": {
+                "psr-4": {
+                    "Kordy\\Ticketit\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ahmed Kordy",
+                    "email": "ahmed@kordy.info"
+                },
+                {
+                    "name": "Balázs Kovács",
+                    "email": "balping314@gmail.com"
+                }
+            ],
+            "description": "A simple helpdesk tickets system for Laravel 5.1, 5.2, 5.3 and 5.4 which integrates smoothly with Laravel default users and auth system",
+            "keywords": [
+                "helpdesk",
+                "laravel",
+                "support",
+                "ticket"
+            ],
+            "time": "2017-06-20 16:55:00"
         },
         {
             "name": "laravel/framework",
@@ -1660,6 +1756,71 @@
                 "laravel"
             ],
             "time": "2015-09-15 11:39:39"
+        },
+        {
+            "name": "mews/purifier",
+            "version": "v2.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mewebstudio/Purifier.git",
+                "reference": "e7cb532acbb9f5aaed4d62fe21fe387c8abf18db"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mewebstudio/Purifier/zipball/e7cb532acbb9f5aaed4d62fe21fe387c8abf18db",
+                "reference": "e7cb532acbb9f5aaed4d62fe21fe387c8abf18db",
+                "shasum": ""
+            },
+            "require": {
+                "ezyang/htmlpurifier": "4.8.*",
+                "illuminate/config": "5.1.*|5.2.*|5.3.*|5.4.*",
+                "illuminate/filesystem": "5.1.*|5.2.*|5.3.*|5.4.*",
+                "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "graham-campbell/testbench": "^3.2",
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "^4.8|^5.0",
+                "scrutinizer/ocular": "^1.3"
+            },
+            "suggest": {
+                "laravel/framework": "To test the Laravel bindings",
+                "laravel/lumen-framework": "To test the Lumen bindings"
+            },
+            "type": "package",
+            "autoload": {
+                "psr-4": {
+                    "Mews\\Purifier\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Muharrem ERİN",
+                    "email": "me@mewebstudio.com",
+                    "homepage": "https://github.com/mewebstudio",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel 5 HtmlPurifier Package",
+            "homepage": "https://github.com/mewebstudio/purifier",
+            "keywords": [
+                "Purifier",
+                "htmlpurifier",
+                "laravel5 HtmlPurifier",
+                "laravel5 Purifier",
+                "laravel5 Security",
+                "security",
+                "xss"
+            ],
+            "time": "2017-04-16 12:23:45"
         },
         {
             "name": "monolog/monolog",
@@ -3340,6 +3501,67 @@
                 "environment"
             ],
             "time": "2016-09-01 10:05:43"
+        },
+        {
+            "name": "yajra/laravel-datatables-oracle",
+            "version": "v7.9.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yajra/laravel-datatables.git",
+                "reference": "1d26b26863495b389808c21d178bbe6ad680ea7d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/1d26b26863495b389808c21d178bbe6ad680ea7d",
+                "reference": "1d26b26863495b389808c21d178bbe6ad680ea7d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "5.4.*",
+                "illuminate/filesystem": "5.4.*",
+                "illuminate/http": "5.4.*",
+                "illuminate/support": "5.4.*",
+                "illuminate/view": "5.4.*",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "orchestra/testbench": "^3.4",
+                "phpunit/phpunit": "~5.7"
+            },
+            "suggest": {
+                "league/fractal": "Transform your api response into something you won't hate.",
+                "yajra/laravel-datatables-buttons": "Plugin for server-side exporting of dataTable.",
+                "yajra/laravel-datatables-html": "Plugin for server-side HTML builder of dataTable."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "7.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yajra\\Datatables\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Arjay Angeles",
+                    "email": "aqangeles@gmail.com"
+                }
+            ],
+            "description": "jQuery DataTables API for Laravel 4|5",
+            "keywords": [
+                "datatables",
+                "jquery",
+                "laravel"
+            ],
+            "time": "2017-07-21 00:47:56"
         }
     ],
     "packages-dev": [
