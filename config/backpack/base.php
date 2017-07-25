@@ -56,7 +56,7 @@ return [
     */
 
     // The prefix used in all base routes (the 'admin' in admin/dashboard)
-    'route_prefix' => 'admin',
+    'route_prefix' => '5x3admin',
 
     // Set this to false if you would like to use your own AuthController and PasswordController
     // (you then need to setup your auth routes manually in your routes.php file)
