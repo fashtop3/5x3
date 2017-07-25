@@ -12,7 +12,7 @@
                     <br>
                     @if($user->payment == false)
                         <div class="col-md-6">
-                            @if(is_null(auth()->user()->receipt()->first()))
+                            @if(is_null($receipt))
                                 <p>Already Made Payment?</p>
                                 <div class="row col-md-12">
                                     <form class="form-horizontal" action="{{ route('teller') }}" method="POST" enctype="multipart/form-data">
@@ -44,7 +44,7 @@
 
                         @if(is_null(auth()->user()->receipt()->first()))
                             <div class="col-md-6">
-                                <p>Payment Details</p>
+                                <h4>Payment Details</h4>
                                 <p>XYZ BANK</p>
                             </div>
                         @endif

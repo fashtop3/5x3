@@ -19,3 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/teller', 'TellerController@store')->name('teller');
+
+
+Route::group(['middleware' => 'web', 'prefix' => config('backpack.base.route_prefix', ['namespace' => 'Backpack\Base\app\Http\Controllers'])], function () {
+    Route::auth();
+    Route::get('logout', 'Auth\LoginController@logout');
+    Route::get('dashboard', 'AdminController@dashboard');
+    Route::get('/', 'AdminController@redirect'); //redirects to admin dashboard
+});
