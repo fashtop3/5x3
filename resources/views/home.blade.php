@@ -72,13 +72,19 @@
                                 <th></th>
                             </tr>
                             <tbody>
-                            <tr class="text-center">
-                                <td>{{ $receipt->id }}</td>
-{{--                                <td>{{ $receipt->upload }}</td>--}}
-                                <td>{!! $receipt->confirmed ? '<span class="label label-success">Yes</span>' : '<span class="label label-danger">No</span>' !!}</td>
-                                <td>{{ $receipt->created_at->diffForHumans() }}</td>
-                                <td></td>
-                            </tr>
+                            @if(!is_null($receipt))
+                                <tr class="text-center">
+                                    <td>{{ $receipt->id }}</td>
+                                    {{--                                <td>{{ $receipt->upload }}</td>--}}
+                                    <td>{!! $receipt->confirmed ? '<span class="label label-success">Yes</span>' : '<span class="label label-danger">No</span>' !!}</td>
+                                    <td>{{ $receipt->created_at->diffForHumans() }}</td>
+                                    <td></td>
+                                </tr>
+                            @else
+                                <tr>
+                                    <td class="text-warning">No upload found.</td>
+                                </tr>
+                            @endif
                             </tbody>
                         </table>
                     </div>
