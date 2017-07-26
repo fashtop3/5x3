@@ -28,3 +28,9 @@ Route::group(['middleware' => 'web', 'prefix' => config('backpack.base.route_pre
     Route::get('dashboard', 'AdminController@dashboard');
     Route::get('/', 'AdminController@redirect'); //redirects to admin dashboard
 });
+
+Route::group([ 'prefix' => config('backpack.base.route_prefix', 'admin')], function () {
+    Route::group(['middleware' => ['SuperAdmin']], function () {
+        CRUD::resource('message', 'Admin\MessageCrudController');
+    });
+});
