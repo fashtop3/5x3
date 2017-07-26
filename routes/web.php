@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/teller', 'TellerController@store')->name('teller');
+Route::get('/profile', 'ProfileController@create')->name('profile');
 
 
 Route::group(['middleware' => 'web', 'prefix' => config('backpack.base.route_prefix', ['namespace' => 'Backpack\Base\app\Http\Controllers'])], function () {
