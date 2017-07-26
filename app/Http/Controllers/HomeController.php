@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Message;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,10 +28,12 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         $receipt = auth()->user()->receipt()->first();
+        $messages = Message::all();
+
         if ($user->upline_id) {
             $upline = User::find($user->upline_id);
-            return view('home', compact(['user', 'upline', 'receipt']));
+            return view('home', compact(['user', 'upline', 'receipt','messages']));
         }
-        return view('home', compact(['user', 'upline', 'receipt']));
+        return view('home', compact(['user', 'upline', 'receipt','messages']));
     }
 }
