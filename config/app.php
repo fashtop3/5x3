@@ -184,6 +184,8 @@ return [
         Backpack\CRUD\CrudServiceProvider::class,
         Backpack\PermissionManager\PermissionManagerServiceProvider::class,
 
+        JeroenNoten\LaravelAdminLte\ServiceProvider::class,
+
     ],
 
     /*

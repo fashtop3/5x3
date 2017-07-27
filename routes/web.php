@@ -34,3 +34,6 @@ Route::group([ 'prefix' => config('backpack.base.route_prefix', 'admin')], funct
         CRUD::resource('message', 'Admin\MessageCrudController');
     });
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
