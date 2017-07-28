@@ -186,6 +186,8 @@ return [
 
         JeroenNoten\LaravelAdminLte\ServiceProvider::class,
 
+        Kordy\Ticketit\TicketitServiceProvider::class,
+
     ],
 
     /*
