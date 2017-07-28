@@ -52,4 +52,19 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Receipt');
     }
+
+    public function setDataAttribute($data)
+    {
+        return $this->attributes['data'] = json_encode($data);
+    }
+
+    public function getDataAttribute()
+    {
+        return json_decode($this->attributes['data']);
+    }
+
+    public function bank()
+    {
+        return Bank::find($this->data->bank_id);
+    }
 }

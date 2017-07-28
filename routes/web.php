@@ -20,8 +20,12 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/teller', 'TellerController@store')->name('teller');
 Route::get('/profile', 'ProfileController@create')->name('profile');
+Route::post('/profile', 'ProfileController@store')->name('profile');
 
 
+/**
+ * backpack configs
+ */
 Route::group(['middleware' => 'web', 'prefix' => config('backpack.base.route_prefix', ['namespace' => 'Backpack\Base\app\Http\Controllers'])], function () {
     Route::auth();
     Route::get('logout', 'Auth\LoginController@logout');
@@ -29,11 +33,15 @@ Route::group(['middleware' => 'web', 'prefix' => config('backpack.base.route_pre
     Route::get('/', 'AdminController@redirect'); //redirects to admin dashboard
 });
 
+/**
+ * backpack configs
+ */
 Route::group([ 'prefix' => config('backpack.base.route_prefix', 'admin')], function () {
     Route::group(['middleware' => ['SuperAdmin']], function () {
         CRUD::resource('message', 'Admin\MessageCrudController');
     });
 });
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

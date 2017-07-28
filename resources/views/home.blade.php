@@ -91,6 +91,11 @@
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body">
+
+                                {{ $user->data->acct_name }} <br />
+                                {{ $user->data->acct_number }} <br />
+                                {{ $user->bank()->name }}
+
                                 @if($user->payment == false)
                                     <div class="col-md-6">
                                         @if(is_null($receipt))
@@ -172,7 +177,7 @@
                                                     </tr>
                                                 @else
                                                     <tr>
-                                                        <td class="text-warning">No upload found.</td>
+                                                        <td colspan="5" class="text-warning text-center">No upload found.</td>
                                                     </tr>
                                                 @endif
                                                 </tbody>

@@ -20,14 +20,13 @@
                     </div>
                 @endif
 
-
                 <form class="form-horizontal"
                       {{--@if(!$profile || !$bank)--}}
                       {{--action="{{ route('profile') }}"--}}
                       {{--@else--}}
                       {{--action="{{ route('profile.edit', ['id' => auth()->user()->id]) }}"--}}
                       {{--@endif--}}
-                      method="post">
+                      method="post" action="{{ route('profile') }}">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -48,10 +47,10 @@
                                         <div class="col-md-7 col-xs-12">
                                             <div class="input-group">
                                                 <span class="input-group-addon"><span class="fa fa-user"></span></span>
-                                                <select name="gender" class="form-control"
+                                                <select name="data[gender]" class="form-control"
                                                         required>
                                                     {{--<option value="">--Choose--</option>--}}
-                                                    <option {{ old('gender')}} value="male">Male</option>
+                                                    <option {{ old('data.gender', @$user->data->gender)}} value="male">Male</option>
                                                     <option value="female">Female</option>
                                                 </select>
                                             </div>
@@ -65,8 +64,8 @@
                                         <div class="col-md-7">
                                             <div class="input-group">
                                                 <span class="input-group-addon"><span class="fa fa-mobile-phone"></span></span>
-                                                <input name="phone" type="text" class="form-control"
-                                                       value="{{ old('phone') }}" required>
+                                                <input name="data[phone]" type="text" class="form-control"
+                                                       value="{{ old('data.phone', @$user->data->phone) }}" required>
                                             </div>
                                             {{--<span class="help-block">This is sample of text field</span>--}}
                                         </div>
@@ -79,10 +78,10 @@
                                         <div class="col-md-7">
                                             <div class="input-group">
                                                 <span class="input-group-addon"><span class="fa fa-institution"></span></span>
-                                                <select name="state_id" class="form-control" required>
+                                                <select name="data[state_id]" class="form-control" required>
                                                     @foreach(\App\State::all() as $state)
                                                         <option value="{{ $state->id }}"
-                                                                {{ old('state_id', @$profile->state_id)==$state->id? "selected='selected'":"" }}
+                                                                {{ old('data.state_id', @$user->data->state_id)==$state->id? "selected='selected'":"" }}
                                                         >{{ $state->name }}</option>
                                                     @endforeach
                                                 </select>
@@ -97,8 +96,8 @@
                                         <div class="col-md-7">
                                             <div class="input-group">
                                                 <span class="input-group-addon"><span class="fa fa-map-marker"></span></span>
-                                                <input name="city" type="text" class="form-control"
-                                                       value="{{ old('city') }}" required>
+                                                <input name="data[city]" type="text" class="form-control"
+                                                       value="{{ old('data.city', @$user->data->city) }}" required>
                                             </div>
                                             {{--<span class="help-block">This is sample of text field</span>--}}
                                         </div>
@@ -110,9 +109,9 @@
                                             <div class="input-group">
                                                 <span class="input-group-addon"><span class="fa fa-share"></span></span>
                                                 {{--<input type="text" class="form-control datepicker" value="2014-11-01">--}}
-                                                <input type="text" name="next_of_kin_name"
+                                                <input type="text" name="data[next_of_kin_name]"
                                                        class="form-control"
-                                                       value="{{ old('next_of_kin_name') }}" required>
+                                                       value="{{ old('data.next_of_kin_name', @$user->data->next_of_kin_name) }}" required>
                                             </div>
                                             {{--<span class="help-block">Click on input field to get datepicker</span>--}}
                                         </div>
@@ -123,9 +122,9 @@
                                             <div class="input-group">
                                                 <span class="input-group-addon"><span class="fa fa-share"></span></span>
                                                 {{--<input type="text" class="form-control datepicker" value="2014-11-01">--}}
-                                                <input type="text" name="next_of_kin_phone"
+                                                <input type="text" name="data[next_of_kin_phone]"
                                                        class="form-control"
-                                                       value="{{ old('next_of_kin_phone') }}" required>
+                                                       value="{{ old('data.next_of_kin_phone', @$user->data->next_of_kin_phone) }}" required>
                                             </div>
                                             {{--<span class="help-block">Click on input field to get datepicker</span>--}}
                                         </div>
@@ -141,9 +140,9 @@
                                             <div class="input-group">
                                                 <span class="input-group-addon"><span class="fa fa-credit-card"></span></span>
                                                 {{--<input type="text" class="form-control datepicker" value="2014-11-01">--}}
-                                                <input type="text" name="acct_name"
+                                                <input type="text" name="data[acct_name]"
                                                        class="form-control"
-                                                       value="{{ old('acct_name') }}" required>
+                                                       value="{{ old('data.acct_name', @$user->data->acct_name) }}" required>
                                             </div>
                                             {{--<span class="help-block">Click on input field to get datepicker</span>--}}
                                         </div>
@@ -155,9 +154,9 @@
                                             <div class="input-group">
                                                 <span class="input-group-addon"><span class="fa fa-money"></span></span>
                                                 {{--<input type="text" class="form-control datepicker" value="2014-11-01">--}}
-                                                <input type="text" name="acct_number"
+                                                <input type="text" name="data[acct_number]"
                                                        class="form-control"
-                                                        value="{{ old('acct_name') }}" required>
+                                                        value="{{ old('data.acct_name', @$user->data->acct_name) }}" required>
                                             </div>
                                             {{--<span class="help-block">Click on input field to get datepicker</span>--}}
                                         </div>
@@ -170,10 +169,10 @@
                                             <div class="input-group">
                                                 <span class="input-group-addon"><span class="fa fa-building"></span></span>
                                                 {{--<input type="text" class="form-control datepicker" value="2014-11-01">--}}
-                                                <select name="bank_id" class="form-control" required>
+                                                <select name="data[bank_id]" class="form-control" required>
                                                     @foreach(\App\Bank::all() as $bank)
                                                         <option value="{{ $bank->id }}"
-                                                                {{ old('bank_id', @$bank->bank_id)==$bank->id? "selected='selected'":"" }}
+                                                                {{ old('data.bank_id', @@$user->data->bank_id)==$bank->id? "selected='selected'":"" }}
                                                         >{{ $bank->name }}</option>
                                                     @endforeach
 

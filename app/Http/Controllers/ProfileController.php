@@ -8,8 +8,19 @@ class ProfileController extends Controller
 {
     public function create()
     {
-        return view('profiles.create');
+        $user = auth()->user();
+        return view('profiles.create', compact('user'));
     }
+
+
+    public function store(Request $request)
+    {
+//        dd(json_encode($request->get('data')));
+        $user = auth()->user();
+        $user->data = $request->get('data');
+        $user->save();
+    }
+
 
 
 }
