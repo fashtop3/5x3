@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class ProfileController extends Controller
 {
@@ -15,10 +16,12 @@ class ProfileController extends Controller
 
     public function store(Request $request)
     {
-//        dd(json_encode($request->get('data')));
+      //dd(json_encode($request->get('data')));
         $user = auth()->user();
         $user->data = $request->get('data');
         $user->save();
+
+        return Redirect::back()->with('message', 'Profile Created or Updated Successfully');
     }
 
 

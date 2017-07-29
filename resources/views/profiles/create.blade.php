@@ -20,13 +20,7 @@
                     </div>
                 @endif
 
-                <form class="form-horizontal"
-                      {{--@if(!$profile || !$bank)--}}
-                      {{--action="{{ route('profile') }}"--}}
-                      {{--@else--}}
-                      {{--action="{{ route('profile.edit', ['id' => auth()->user()->id]) }}"--}}
-                      {{--@endif--}}
-                      method="post" action="{{ route('profile') }}">
+                <form class="form-horizontal" method="post" action="{{ route('profile') }}">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="panel panel-default">
                         <div class="panel-heading">
