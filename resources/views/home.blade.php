@@ -92,10 +92,16 @@
                             <!-- /.box-header -->
                             <div class="box-body">
 
-                                {{ $user->data->acct_name }} <br />
-                                {{ $user->data->acct_number }} <br />
-                                {{ $user->bank()->name }}
-
+                                <div class="">
+                                    <?php try { ?>
+                                            {{ $user->data->acct_name }}
+                                            {{ $user->data->acct_number }}
+                                            {{ $user->bank()->name }}
+                                    <?php } catch(\Exception $e){ ?>
+                                            <a href="{{ route('profile') }}">Update your profile</a>
+                                    <?php } ?>
+                                </div>
+                                <br />
                                 @if($user->payment == false)
                                     <div class="col-md-6">
                                         @if(is_null($receipt))
