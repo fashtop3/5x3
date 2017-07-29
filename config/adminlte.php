@@ -122,44 +122,24 @@ return [
             'url'  => 'profile',
             'icon' => 'user',
         ],
-//        [
-//            'text'    => 'Multilevel',
-//            'icon'    => 'share',
-//            'submenu' => [
-//                [
-//                    'text' => 'Level One',
-//                    'url'  => '#',
-//                ],
-//                [
-//                    'text'    => 'Level One',
-//                    'url'     => '#',
-//                    'submenu' => [
-//                        [
-//                            'text' => 'Level Two',
-//                            'url'  => '#',
-//                        ],
-//                        [
-//                            'text'    => 'Level Two',
-//                            'url'     => '#',
-//                            'submenu' => [
-//                                [
-//                                    'text' => 'Level Three',
-//                                    'url'  => '#',
-//                                ],
-//                                [
-//                                    'text' => 'Level Three',
-//                                    'url'  => '#',
-//                                ],
-//                            ],
-//                        ],
-//                    ],
-//                ],
-//                [
-//                    'text' => 'Level One',
-//                    'url'  => '#',
-//                ],
-//            ],
-//        ],
+        [
+            'text'    => 'Ticket',
+            'icon'    => 'share',
+            'submenu' => [
+                [
+                    'text' => 'View all',
+                    'url'  => '/tickets/create',
+                ],
+                [
+                    'text'    => 'Create new',
+                    'url'     => '/tickets/create',
+                ],
+                [
+                    'text' => 'Completed',
+                    'url'  => '/tickets/complete',
+                ],
+            ],
+        ],
 //        'LABELS',
 //        [
 //            'text'       => 'Important',
