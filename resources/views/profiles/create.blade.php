@@ -24,7 +24,7 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><strong>Profile/Bank</strong></h3>
+                            <h3 class="panel-title"><strong>{{$user->name}}</strong></h3>
                             <ul class="panel-controls">
                                 {{--<li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>--}}
                             </ul>

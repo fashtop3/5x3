@@ -10,37 +10,19 @@
 
         <!-- Main content -->
         <section class="content">
-            <!-- Small boxes (Stat box) -->
+            <!-- Small boxes Row -->
             <div class="row">
                 <div class="col-lg-3 col-xs-6">
                     <!-- small box -->
                     <div class="small-box bg-aqua">
                         <div class="inner">
-                            <h3>150</h3>
-
-                            <p>New Orders</p>
+                            <h3>Glochis Club</h3>
+                            <p>First Bank 0029560156</p>
                         </div>
-                        <div class="icon">
-                            <i class="ion ion-bag"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
-                <div class="col-lg-3 col-xs-6">
-                    <!-- small box -->
-                    <div class="small-box bg-green">
-                        <div class="inner">
-                            <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-                            <p>Bounce Rate</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
                 <!-- ./col -->
                 <div class="col-lg-3 col-xs-6">
                     <!-- small box -->
@@ -51,155 +33,171 @@
                             <p>
                                 @if(isset($upline))
                                     Upline: {{$upline->name}}
+                                @else
+                                    No Upline Yet
+                                    <br>
+                                    <br>
                                 @endif
                             </p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-person-add"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+
                     </div>
                 </div>
                 <!-- ./col -->
+
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-green">
+                        <div class="inner">
+                            <h3>
+                                @if($user->level_id == null)
+                                    0
+                                @else
+                                    {{$user->level_id}}
+                                @endif
+                                <br>
+                            </h3>
+
+                            <p>Current Level</p>
+                        </div>
+
+                    </div>
+                </div>
+
                 <div class="col-lg-3 col-xs-6">
                     <!-- small box -->
                     <div class="small-box bg-red">
                         <div class="inner">
-                            <h3>65</h3>
+                            <h3>Profile</h3>
 
-                            <p>Unique Visitors</p>
+                                @if(is_null($user->data))
+                                  <p>Incomplete User Profile</p>
+                                @else
+                                  <p>Profile Complete</p>
+                                @endif
                         </div>
-                        <div class="icon">
-                            <i class="ion ion-pie-graph"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                            @if(is_null($user->data))
+                              <a href="{{ route('profile') }}" class="small-box-footer">Update Profile <i class="fa fa-arrow-circle-right"></i></a>
+                            @endif
                     </div>
                 </div>
                 <!-- ./col -->
             </div>
-            <!-- /.row -->
+            <!-- End Small Boxes Row/ -->
 
 
-            <!-- Main row -->
+            <!-- Main Panel Row -->
             <div class="row">
-                <!-- Left col -->
-                <!-- START ACCORDION & CAROUSEL-->
-                <h2 class="page-header">Glochis  Exclusive</h2>
-
                 <div class="row">
 
-                    <div class="col-md-6">
+                    <!-- START ACCOUNT DETAILS SECTION-->
+                        <div class="col-md-6">
                         <div class="box box-solid">
-                            <div class="box-header with-border">
-                                <h3 class="box-title">Account Details</h3>
-                            </div>
-                            <!-- /.box-header -->
-                            <div class="box-body">
-
-                                <div class="">
-                                    <?php try { ?>
-                                            {{ $user->data->acct_name }}
-                                            {{ $user->data->acct_number }}
-                                            {{ $user->bank()->name }}
-                                    <?php } catch(\Exception $e){ ?>
-                                            <a href="{{ route('profile') }}">Update your profile</a>
-                                    <?php } ?>
-                                </div>
-                                <br />
-                                @if($user->payment == false)
-                                    <div class="col-md-6">
-                                        @if(is_null($receipt))
-                                            <p>Already Made Payment?</p>
-                                            <div class="row col-md-12">
-                                                <form class="form-horizontal" action="{{ route('teller') }}" method="POST" enctype="multipart/form-data">
-                                                    {{ csrf_field() }}
-                                                    <div class="form-group">
-
-                                                        <div class="col-md-9">
-                                                            <input name="receipt" type="file" class="form-control" />
-                                                        </div>
-
-                                                        <div class="col-md-2">
-                                                            <button class="btn btn-success" type="submit">Upload</button>
-                                                        </div>
-
-                                                        <div class="col-md-12 alert">
-                                                            @if ($errors->has('receipt'))
-                                                                <span class="help-block">
-                                                                    <strong>{{ $errors->first('receipt') }}</strong>
-                                                                </span>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        @endif
-                                        @if (Session::has('r-upload'))
-                                            <div class="col-md-12 alert alert-success">
-                                                <strong>{{ session('r-upload') }}</strong>
-                                            </div>
+                                    <div class="box-header with-border">
+                                        @if($user->payment == false)
+                                          <h3 class="box-title">Activate Account</h3>
+                                        @else
+                                          <h3 class="box-title">Account Details</h3>
                                         @endif
                                     </div>
+                                    <!-- /.box-header -->
+                                    <div class="box-body">
 
-                                    @if(is_null(auth()->user()->receipt()->first()))
-                                        <div class="col-md-6">
-                                            <h4>Payment Details</h4>
-                                            <p>XYZ BANK</p>
-                                        </div>
-                                    @endif
+                                                @if($user->payment == false)
+                                            <div class="col-md-12">
+                                                        @if(is_null($receipt))
+                                                            <p>Already Made Payment?</p>
+                                                            <div class="row col-md-12">
+                                                                <form class="form-horizontal" action="{{ route('teller') }}" method="POST" enctype="multipart/form-data">
+                                                                    {{ csrf_field() }}
+                                                                    <div class="form-group">
+
+                                                                        <div class="col-md-9">
+                                                                            <input name="receipt" type="file" class="form-control" />
+                                                                        </div>
+
+                                                                        <div class="col-md-2">
+                                                                            <button class="btn btn-success" type="submit">Upload</button>
+                                                                        </div>
+
+                                                                        <div class="col-md-12 alert">
+                                                                            @if ($errors->has('receipt'))
+                                                                                <span class="help-block">
+                                                                                    <strong>{{ $errors->first('receipt') }}</strong>
+                                                                                </span>
+                                                                            @endif
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        @endif
+                                                        @if (Session::has('r-upload'))
+                                                            <div class="col-md-12 alert alert-success">
+                                                                <strong>{{ session('r-upload') }}</strong>
+                                                            </div>
+                                                        @endif
+                                            </div>
+                                        @else
+                                                        <?php try { ?>
+                                                     <h4><strong>Name:</strong>    {{ $user->name }}</h4>
+                                                      <h4><strong>Email: </strong>  {{ $user->email}}</h4>
+                                                            <br>
+                                                        <?php } catch(\Exception $e){ ?>
+
+                                                <?php } ?>
+
+                                                @endif
 
 
-                                @elseif(isset($upline))
-                                    <p>Upline: {{$upline->name}}</p>
-                                @endif
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">Teller</div>
 
+                                                        <div class="panel-body">
+                                                            <div class="table-responsive">
+                                                                <table class="table table-bordered">
+                                                                    <tr>
+                                                                        <th class="text-center">ID</th>
+                                                                        <th class="text-center">Confirmed</th>
+                                                                        <th class="text-center">Date Added</th>
+                                                                        <th></th>
+                                                                    </tr>
+                                                                    <tbody>
+                                                                    @if(!is_null($receipt))
+                                                                        <tr class="text-center">
+                                                                            <td>{{ $receipt->id }}</td>
+                                                                            {{--                                <td>{{ $receipt->upload }}</td>--}}
+                                                                            <td>{!! $receipt->confirmed ? '<span class="label label-success">Yes</span>' : '<span class="label label-danger">No</span>' !!}</td>
+                                                                            <td>{{ $receipt->created_at->diffForHumans() }}</td>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                    @else
+                                                                        <tr>
+                                                                            <td colspan="5" class="text-warning text-center">No upload found.</td>
+                                                                        </tr>
+                                                                    @endif
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-
-                            </div>
+                                    </div>
+                        </div>
 
 
                             <!-- /.box-body -->
-                        </div>
-                        <!-- /.box -->
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">Teller</div>
-
-                                    <div class="panel-body">
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered">
-                                                <tr>
-                                                    <th class="text-center">ID</th>
-                                                    <th class="text-center">Confirmed</th>
-                                                    <th class="text-center">Date Added</th>
-                                                    <th></th>
-                                                </tr>
-                                                <tbody>
-                                                @if(!is_null($receipt))
-                                                    <tr class="text-center">
-                                                        <td>{{ $receipt->id }}</td>
-                                                        {{--                                <td>{{ $receipt->upload }}</td>--}}
-                                                        <td>{!! $receipt->confirmed ? '<span class="label label-success">Yes</span>' : '<span class="label label-danger">No</span>' !!}</td>
-                                                        <td>{{ $receipt->created_at->diffForHumans() }}</td>
-                                                        <td></td>
-                                                    </tr>
-                                                @else
-                                                    <tr>
-                                                        <td colspan="5" class="text-warning text-center">No upload found.</td>
-                                                    </tr>
-                                                @endif
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
+                    <!-- END ACCOUNT DETAILS SECTION-->
 
+
+                    <!-- START NEWS SECTION-->
                     <div class="col-md-6">
                         <div class="box box-solid">
                             <div class="box-header with-border">
@@ -208,7 +206,7 @@
                             <div class="box-body">
                                 <div class="box-group" id="accordion">
                                     <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
-                                    <div class="panel box box-primary">
+                                    <div class="panel box box-warning">
                                         @foreach($messages as $message)
                                             <div class="box-header with-border">
                                                 <h4 class="box-title">
@@ -230,13 +228,10 @@
                         </div>
                         <!-- /.box -->
                     </div>
+                    <!-- END NEWS SECTION-->
 
                 </div>
-                <!-- /.row -->
-                <!-- END ACCORDION & CAROUSEL-->
-
             </div>
-
 
         </section>
         <!-- /.content -->
