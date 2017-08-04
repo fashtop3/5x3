@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Receipt;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
@@ -41,6 +42,20 @@ class ReceiptCrudController extends CrudController
             'function_name' => 'getAdminReceiptWithLink',
             'attribute' => 'route',
         ])->AfterColumn('name');
+
+
+        $this->crud->removeFields(['user_id', 'upload'], 'update/create/both');
+
+        $this->crud->addField([
+            'name' => 'name',
+            'label' => "Member"
+        ]);
+
+        $this->crud->addField([
+            'name' => 'confirm',
+            'label' => 'Confirmation Status',
+            'type' => "checkbox",
+        ]);
 
 
         // ------ CRUD FIELDS
@@ -119,8 +134,15 @@ class ReceiptCrudController extends CrudController
         return $redirect_location;
     }
 
+    /**
+     * @param UpdateRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(UpdateRequest $request)
     {
+        $receipt = Receipt::findOrFail($request->get('id'));
+        $receipt->user()->update(['payment' => $request->get('confirm')]);
+
         // your additional operations before save here
         $redirect_location = parent::updateCrud();
         // your additional operations after save here

@@ -24,7 +24,7 @@ class Receipt extends Model
 
     public function getConfirmedAttribute()
     {
-        return $this->status ? "Confirmed" : "Pending";
+        return $this->confirm ? "Confirmed" : "Pending";
     }
 
     public function getAdminReceiptWithLink()
