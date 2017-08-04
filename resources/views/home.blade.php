@@ -171,7 +171,7 @@
                                                                         <tr class="text-center">
                                                                             <td>{{ $receipt->id }}</td>
                                                                             {{--                                <td>{{ $receipt->upload }}</td>--}}
-                                                                            <td>{!! $receipt->confirmed ? '<span class="label label-success">Yes</span>' : '<span class="label label-danger">No</span>' !!}</td>
+                                                                            <td>{!! $user->payment ? '<span class="label label-success">Yes</span>' : '<span class="label label-danger">No</span>' !!}</td>
                                                                             <td>{{ $receipt->created_at->diffForHumans() }}</td>
                                                                             <td></td>
                                                                         </tr>

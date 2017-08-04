@@ -16,18 +16,11 @@ class SuperAdminAccess
      */
     public function handle($request, Closure $next)
     {
-
+        exit;
         $user = Auth::user();
-
-        if($user){
-            if ( $user->hasRole('Admin')) {
-                return $next($request);
-            }
-            elseif (!$user->hasRole('SuperAdmin')){
-                return redirect('/home');
-            }
+        if(!$user->hasRole('Admin')) {
+            return $next($request);
         }
-
 
         return $next($request);
 

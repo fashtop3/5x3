@@ -26,7 +26,8 @@ Route::post('/profile', 'ProfileController@store')->name('profile');
 /**
  * backpack configs
  */
-Route::group(['middleware' => 'web', 'prefix' => config('backpack.base.route_prefix', ['namespace' => 'Backpack\Base\app\Http\Controllers'])], function () {
+
+Route::group(['middleware' => ['web'], 'prefix' => config('backpack.base.route_prefix', ['namespace' => 'Backpack\Base\app\Http\Controllers'])], function () {
     Route::auth();
     Route::get('logout', 'Auth\LoginController@logout');
     Route::get('dashboard', 'AdminController@dashboard');
@@ -36,11 +37,14 @@ Route::group(['middleware' => 'web', 'prefix' => config('backpack.base.route_pre
 /**
  * backpack configs
  */
-Route::group([ 'prefix' => config('backpack.base.route_prefix', 'admin')], function () {
-    Route::group(['middleware' => ['SuperAdmin']], function () {
-        CRUD::resource('message', 'Admin\MessageCrudController');
-    });
+Route::group(['prefix' => config('backpack.base.route_prefix', 'admin')], function () {
+    CRUD::resource('receipt', 'Admin\ReceiptCrudController');
+    Route::get('receipt/{id}', function() {
+
+    })->name('receipt.view');
+    CRUD::resource('message', 'Admin\MessageCrudController');
 });
+
 
 Auth::routes();
 
