@@ -154,7 +154,7 @@ class PromoteUsers extends Command
                     }
 
 //                    if ($this->reqMatch($LZUU) == 0) {
-                    if (static::reqMatch($L8ZUU) == 0) {
+                    if (static::reqMatch($LZUU) == 0) {
                         $this->levelUp($LZUU, 1);
                     }
                 } elseif($assertLevel == -1) {

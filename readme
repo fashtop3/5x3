@@ -1,0 +1,4 @@
+for a start...
+refresh db and populate with users
+to start the process loop, set the upline id of the second register user to the id of the first user
+and also make sure that payment hs been confirmed for proper processing of events.
