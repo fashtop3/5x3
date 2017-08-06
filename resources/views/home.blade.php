@@ -242,7 +242,7 @@
                                             <table class="table table-bordered">
                                                 <tr>
                                                     <th class="text-center">Level</th>
-                                                    <th class="text-center">Match/Level</th>
+                                                    <th class="text-center">Match/Status</th>
                                                     <th class="text-center">Peak</th>
                                                     <th></th>
                                                 </tr>
@@ -261,19 +261,19 @@
                                                                 @if($match >= 5)
                                                                     <span class="label label-success">Completed</span>
                                                                 @else
-                                                                    <span class="label label-warning">{{ $match }}</span>
+                                                                    <span class="label label-default">{{ $match }}</span>
                                                                 @endif
                                                             @elseif(($i==2))
                                                                 @if($match >= 25)
                                                                     <span class="label label-success">Completed</span>
                                                                 @else
-                                                                    <span class="label label-warning">{{ $match }}</span>
+                                                                    <span class="label label-default">{{ $match }}</span>
                                                                 @endif
                                                             @elseif(($i==3))
                                                                 @if($match >= 125)
                                                                     <span class="label label-success">Completed</span>
                                                                 @else
-                                                                    <span class="label label-warning">{{ $match }}</span>
+                                                                    <span class="label label-default">{{ $match }}</span>
                                                                 @endif
                                                             @endif
                                                         </td>
