@@ -21,8 +21,8 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'password' => $password ?: $password = bcrypt('ericson'),
         'level_id' => null,
         'upline_id' => null,
-        'level_assert' => null,
-        'payment' => 0,
+        'level_assert' => 0,
+        'payment' => 1,
         'remember_token' => str_random(10),
     ];
 });

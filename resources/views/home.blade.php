@@ -199,34 +199,96 @@
 
                     <!-- START NEWS SECTION-->
                     <div class="col-md-6">
-                        <div class="box box-solid">
-                            <div class="box-header with-border">
-                                <h3 class="box-title">News</h3>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="box box-solid">
+                                    <div class="box-header with-border">
+                                        <h3 class="box-title">News</h3>
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="box-group" id="accordion">
+                                            <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
+                                            <div class="panel box box-warning">
+                                                @foreach($messages as $message)
+                                                    <div class="box-header with-border">
+                                                        <h4 class="box-title">
+                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                                                {{$message->title}}
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseOne" class="panel-collapse collapse in">
+                                                        <div class="box-body">
+                                                            {{$message->body}}
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.box-body -->
+                                </div>
+                                <!-- /.box -->
                             </div>
-                            <div class="box-body">
-                                <div class="box-group" id="accordion">
-                                    <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
-                                    <div class="panel box box-warning">
-                                        @foreach($messages as $message)
-                                            <div class="box-header with-border">
-                                                <h4 class="box-title">
-                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                                        {{$message->title}}
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="collapseOne" class="panel-collapse collapse in">
-                                                <div class="box-body">
-                                                    {{$message->body}}
-                                                </div>
-                                            </div>
-                                        @endforeach
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Downlines</div>
+
+                                    <div class="panel-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th class="text-center">Level</th>
+                                                    <th class="text-center">Match/Level</th>
+                                                    <th class="text-center">Peak</th>
+                                                    <th></th>
+                                                </tr>
+                                                <tbody>
+                                                <?php $du = [0, 5, 25, 125]; $match = $user->downlines()  ?>
+                                                @for($i=3; $i>=0; $i--)
+                                                <tr class="text-center">
+                                                    <td class="text-center">{{ $i }}</td>
+                                                    @if(!$user->payment)
+                                                        <td class="text-danger">Inactive</td>
+                                                    @else
+                                                        <td>
+                                                            @if($i==0)
+                                                                <span class="label label-success">Activation</span>
+                                                            @elseif(($i==1))
+                                                                @if($match >= 5)
+                                                                    <span class="label label-success">Completed</span>
+                                                                @else
+                                                                    <span class="label label-warning">{{ $match }}</span>
+                                                                @endif
+                                                            @elseif(($i==2))
+                                                                @if($match >= 25)
+                                                                    <span class="label label-success">Completed</span>
+                                                                @else
+                                                                    <span class="label label-warning">{{ $match }}</span>
+                                                                @endif
+                                                            @elseif(($i==3))
+                                                                @if($match >= 125)
+                                                                    <span class="label label-success">Completed</span>
+                                                                @else
+                                                                    <span class="label label-warning">{{ $match }}</span>
+                                                                @endif
+                                                            @endif
+                                                        </td>
+                                                    @endif
+                                                    <td>{{ $du[$i] }}</td>
+                                                </tr>
+                                                @endfor
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- /.box-body -->
                         </div>
-                        <!-- /.box -->
+
                     </div>
                     <!-- END NEWS SECTION-->
 

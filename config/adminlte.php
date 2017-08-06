@@ -140,12 +140,6 @@ return [
                 ],
             ],
         ],
-        'Downlines',
-        [
-            'text' => 'Downlines',
-            'url'  => 'downline',
-            'icon' => 'user',
-        ],
 //        'LABELS',
 //        [
 //            'text'       => 'Important',

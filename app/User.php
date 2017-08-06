@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Console\Commands\PromoteUsers;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Backpack\Base\app\Notifications\ResetPasswordNotification as ResetPasswordNotification;
@@ -66,5 +67,33 @@ class User extends Authenticatable
     public function bank()
     {
         return Bank::find($this->data->bank_id);
+    }
+
+    public function downlines()
+    {
+        $steps = 0;
+        return $this->totalDownlines($this, $steps, 4);
+    }
+
+    public function totalDownlines(&$user, &$steps, $loop)
+    {
+        if($loop == 0)
+            return $steps;
+
+        $DLUsers = function (User &$user) {
+            return User::where(function ($query) use(&$user) {
+                $query->where('upline_id', $user->id)
+                    ->wherePayment(1)
+                    ->whereNotIn('id', [1, $user->id]);
+            })->get();
+        };
+
+        $dlUsers = $DLUsers($user);
+        $steps += $dlUsers->count();
+        foreach ($dlUsers as &$DLU) {
+            $this->totalDownlines($DLU, $steps, $loop-1);
+        }
+
+        return $steps;
     }
 }

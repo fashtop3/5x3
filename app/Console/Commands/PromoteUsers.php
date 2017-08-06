@@ -70,7 +70,7 @@ class PromoteUsers extends Command
      * @param User $user
      * @return int
      */
-    protected function reqMatch(User &$user)
+    static protected function reqMatch(User &$user)
     {
         return 5 - User::where('upline_id', $user->id)->get()->count();
     }
@@ -135,7 +135,8 @@ class PromoteUsers extends Command
 //            $this->info($this->reqMatch($LZUU));
                 $assertLevel = $this->assertLevel($LZUU);
                 if ($assertLevel == 0) {
-                    $reqMatch = $this->reqMatch($LZUU);
+//                    $reqMatch = $this->reqMatch($LZUU);
+                    $reqMatch = static::reqMatch($LZUU);
                     $users = $LZUNoUpline($LZUU);
                     $this->info("recallUser in Loop: ".$recallUser()->count());
                     $this->info("LZUNoUpline: ".$users->count());
@@ -152,7 +153,8 @@ class PromoteUsers extends Command
                         $singleU->save();
                     }
 
-                    if ($this->reqMatch($LZUU) == 0) {
+//                    if ($this->reqMatch($LZUU) == 0) {
+                    if (static::reqMatch($L8ZUU) == 0) {
                         $this->levelUp($LZUU, 1);
                     }
                 } elseif($assertLevel == -1) {
@@ -170,7 +172,7 @@ class PromoteUsers extends Command
      * @param $loop
      * @return int
      */
-    protected function stepCheck(&$user, &$steps, $loop)
+    static public function stepCheck(&$user, &$steps, $loop)
     {
         if($loop == 0)
             return $steps;
@@ -186,9 +188,11 @@ class PromoteUsers extends Command
         //get Downline users
         $dlUsers = $DLUsers($user);
         foreach ($dlUsers as &$DLU) {
-            if ($this->reqMatch($DLU) == 0) {
+//            if ($this->reqMatch($DLU) == 0) {
+            if (static::reqMatch($DLU) == 0) {
                 $steps += 5;
-                $this->stepCheck($DLU, $steps, $loop-1);
+//                $this->stepCheck($DLU, $steps, $loop-1);
+                static::stepCheck($DLU, $steps, $loop-1);
             }
         }
 
@@ -213,8 +217,10 @@ class PromoteUsers extends Command
             $steps = 0;
             $assertLevel = $this->assertLevel($user);
             if ($assertLevel == 1) {
-                if ($this->reqMatch($user) == 0) {
-                    $this->stepCheck($user, $steps, 1);
+//                if ($this->reqMatch($user) == 0) {
+                if (static::reqMatch($user) == 0) {
+//                    $this->stepCheck($user, $steps, 1);
+                    static::stepCheck($user, $steps, 1);
                     $this->info("1L:{$user->id} | SU:{$steps} "); //SU->Steps-users //1L -> Level 1
                     if ($steps == 25) {
                         $this->levelUp($user, 2);
@@ -222,8 +228,10 @@ class PromoteUsers extends Command
                 }
             } elseif ($assertLevel == 2) {
                 $steps = 0;
-                if ($this->reqMatch($user) == 0) {
-                    $this->stepCheck($user, $steps, 2);
+//                if ($this->reqMatch($user) == 0) {
+                if (static::reqMatch($user) == 0) {
+//                    $this->stepCheck($user, $steps, 2);
+                    static::stepCheck($user, $steps, 2);
                     $this->info("2L:{$user->id} | SU:{$steps} "); //SU->Steps-users //1L -> Level 1
                     if ($steps >= 125) {
                         $this->levelUp($user, 3);
