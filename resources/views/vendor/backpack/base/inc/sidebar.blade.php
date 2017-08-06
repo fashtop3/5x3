@@ -31,9 +31,10 @@
                   <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/permission') }}"><i class="fa fa-key"></i> <span>Permissions</span></a></li>
                 </ul>
               </li>
+              <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/receipt') }}"><i class="fa fa-adjust"></i> <span>Activate Users</span></a></li>
               <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/message') }}"><i class="fa fa-bell"></i> <span>Messages</span></a></li>
           @elseif(Auth::user()->hasRole('Admin'))
-              <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/user') }}"><i class="fa fa-bell"></i> <span>Activate Users</span></a></li>
+              <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/receipt') }}"><i class="fa fa-adjust"></i> <span>Activate Users</span></a></li>
               <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/message') }}"><i class="fa fa-bell"></i> <span>Messages</span></a></li>
           @else
 
