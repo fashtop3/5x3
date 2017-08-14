@@ -23,6 +23,8 @@ Route::get('/faq', function (){
     return view('faq');
 });
 
+Route::get('logout', 'Auth\LoginController@logout');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
