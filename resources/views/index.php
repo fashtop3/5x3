@@ -3,17 +3,16 @@
 <head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Glochis Club | A Glochis African Development Initiative | Empowering our youth</title>
+	<title>Glochis Club | A Glochis African Development Initiative | Empowering our youth</title>
 
     <!-- SEO CONFIG -->
-    @include ('includes/seo')
-
-<!-- SEO CONFIG -->
-
+    <?php include('includes/seo.php'); ?>
+    <!-- SEO CONFIG -->
+    
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link rel="stylesheet" href="js/font-awesome-4.7.0/css/font-awesome.min.css" />
-
+    
     <!-- CSS Files -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/css/now-ui-kit.css" rel="stylesheet" />
@@ -27,27 +26,27 @@
 <body>
 
 
-<!-- NAVIGATION -->
-@include ('includes/navigation')
-<!-- NAVIGATION -->
+    <!-- NAVIGATION -->
+    <?php include('includes/navigation.php'); ?>
+    <!-- NAVIGATION -->
 
 
 
-<!-- THE MAIN SLIDER -->
-<center>
+    <!-- THE MAIN SLIDER -->
+    <center>
     <div class="bose" style="min-height:600px;">
-
+        
         <div class="row container SliderContent">
-
+            
             <div class="col-md-7 Text-to-left">
                 <h2>Join the network of enterprising young Africans<br/><br/>
-                    <span>Our main aim is to provide a platform that actively promotes entrepreneural development among our young people. This club is an effort of Glochis African Development Initiative (GADI&trade;)</span>
+                <span>Our main aim is to provide a platform that actively promotes entrepreneural development among our young people. This club is an effort of Glochis African Development Initiative (GADI&trade;)</span>
                 </h2>
                 <br/>
-                <a class="btn btn-danger btn-rounded" href="{{url('/how')}}">How it Works</a>
+                <a class="btn btn-danger btn-rounded" href="#">How it Works</a> 
                 <a class="btn btn-simple btn-rounded" href="http://home.glochisclub.com/" rel="tooltip" title="Visit the Glochis African Development Initiative website" data-placement="bottom"><i class="now-ui-icons design_app"></i> GADI</a>
             </div>
-
+            
             <div class="col-md-5">
 
             </div>
@@ -55,26 +54,27 @@
 
         </div>
     </div>
-</center>
-<!-- THE MAIN SLIDER -->
+    </center>
+    <!-- THE MAIN SLIDER -->
 
 
 
 
 
 
-
-<!-- THE MIDDLE SECTION
-<center>
-<div class="CENTERAREA">
-    <div class="row container">
-        <div class="col-md-12">
-        <h2>How it works <h2>
+    
+    <!-- THE MIDDLE SECTION 
+    <center>
+    <div class="CENTERAREA">
+        <div class="row container">
+            <div class="col-md-12">
+            <h2>How it works <h2>
+            </div>
         </div>
     </div>
-</div>
-</center>
-THE MIDDLE SECTION -->
+    </center>
+    THE MIDDLE SECTION -->
+    
 
 
 
@@ -88,11 +88,10 @@ THE MIDDLE SECTION -->
 
 
 
-
-
-<!-- FOOTER -->
-@include ('includes/footer')
-<!-- FOOTER -->
+    
+    <!-- FOOTER -->
+    <?php include('includes/footer.php'); ?>
+    <!-- FOOTER -->
 
 
 </body>
