@@ -6,7 +6,7 @@
 	<title>How it works | Glochis Club | A Glochis African Development Initiative | Empowering our youth</title>
 
     <!-- SEO CONFIG -->
-    <?php include('includes/seo.php'); ?>
+    @include ('includes/seo')
     <!-- SEO CONFIG -->
     
     <!--     Fonts and icons     -->
@@ -27,7 +27,7 @@
 
 
     <!-- NAVIGATION -->
-    <?php include('includes/navigation.php'); ?>
+    @include ('includes/navigation')
     <!-- NAVIGATION -->
 
 
@@ -127,7 +127,7 @@
 
     
     <!-- FOOTER -->
-    <?php include('includes/footer.php'); ?>
+    @include ('includes/footer')
     <!-- FOOTER -->
 
 

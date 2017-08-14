@@ -6,7 +6,7 @@
                     <span class="navbar-toggler-bar bar2"></span>
                     <span class="navbar-toggler-bar bar3"></span>
                 </button>
-                <a class="navbar-brand" href="index.html" rel="tooltip" title="GLOCHIS CLUB | A Glochis African Development Initiative" data-placement="bottom" target="_blank">
+                <a class="navbar-brand" href="{{url('/')}}" rel="tooltip" title="GLOCHIS CLUB | A Glochis African Development Initiative" data-placement="bottom" target="_blank">
                    <img src="img/logo.png" height="62" alt="" title="" />
                 </a>
             </div>
