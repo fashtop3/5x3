@@ -15,7 +15,7 @@
                     <li class="nav-item"><a class="nav-link" href="{{url('/')}}"><i class="now-ui-icons business_chart-bar-32"></i> Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{url('/how')}}"><i class="now-ui-icons business_briefcase-24"></i> How it works</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{url('/faq')}}"><i class="now-ui-icons business_bulb-63"></i> FAQs</a></li>
-
+                    <li class="nav-item"><a class="nav-link" href="{{url('/videos')}}"><i class="now-ui-icons video"></i> Videos</a></li>
 
 
                     @if (Auth::check())
