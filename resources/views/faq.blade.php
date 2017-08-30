@@ -8,16 +8,16 @@
     <!-- SEO CONFIG -->
         @include ('includes/seo')
     <!-- SEO CONFIG -->
-    
+
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="js/font-awesome-4.7.0/css/font-awesome.min.css" />
-    
+
     <!-- CSS Files -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="assets/css/now-ui-kit.css" rel="stylesheet" />
+    <link href="js/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <!-- <link href="assets/css/now-ui-kit.css" rel="stylesheet" /> -->
     <link href="css/glochis.css" rel="stylesheet" />
-    <link href="css/bose.css" rel="stylesheet" />
 
 
 </head>
@@ -165,13 +165,13 @@
 
 
 </body>
+
 <!--   Core JS Files   -->
-<script src="assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
-<script src="assets/js/core/tether.min.js" type="text/javascript"></script>
-<script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-<script src="assets/js/plugins/bootstrap-switch.js"></script>
-<script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
-<script src="assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
-<script src="assets/js/now-ui-kit.js" type="text/javascript"></script>
+<script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
+<script src="js/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!-- BINDING ALL JS AND INITIALIZING WEBSITE -->
+<script type="text/javascript" src="js/siteInit.js"></script>
+<!-- BINDING ALL JS AND INITIALIZING WEBSITE -->
 
 </html>
