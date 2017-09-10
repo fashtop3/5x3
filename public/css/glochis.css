@@ -1,0 +1,87 @@
+body { font-family: "Open Sans"}
+
+h1, h2, h3, h4 { font-weight: 300;}
+h4 { font-size: 18px; padding-top: 0px; margin-top: 0px;}
+h2 { font-size: 36px; padding-top: 0px; margin-top: 0px;}
+h2 span { font-size: 22px;}
+
+.form-control { 
+color: #DDD; 
+font-size: 13px; 
+border:1px solid #DDD;
+background-color: rgba(222, 222, 222, 0.3);
+box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+opacity: 6;
+}
+.navbar .navbar-nav li{
+  text-transform: none;
+  font-size: 15px;
+  padding: 0.2rem 0.5rem;
+  line-height: 0.925rem;
+  }
+
+  .navbar-nav li a { padding-left:12px; padding-top:10px; padding-bottom: 10px; padding-right: 12px; color:#FFF}
+  .carousel-caption {left: 10%;}
+
+
+.navbar .navbar-nav li a:hover{
+  /* background-color: rgba(255, 255, 255, 0.2);*/
+  /* background-color: #2CA8FF; */
+  background: none;
+  -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, .2); box-shadow: 0 5px 5px rgba(0, 0, 0, .2); }
+
+.TrickNav1 { border:1px solid #EEE; margin-left: 5px; margin-right: 5px; border-radius:4px; } .TrickNav1:hover { background-color: rgba(255, 255, 255, 0.2); color: #FFF;}
+.TrickNav2 { background: #31708f; margin-left: 5px; margin-right: 5px; border-radius:4px; } .TrickNav2:hover{border:1px solid #DDD; background: #21708f}
+.TrickNav3 { background: #a94442; margin-left: 5px; margin-right: 5px; border-radius:4px; } .TrickNav3:hover{border:1px solid #DDD;}
+
+
+.PushForceImg { margin-left: 15px;}
+
+
+.input-group-addon {
+    padding: 11px 19px 11px 11px;;
+}
+
+.LargeText { font-size: 24px; line-height: 24px; color: #DDD;}
+.CenterHouse { min-height: 400px; padding-top: 100px;}
+.Text-to-left { text-align: left;}
+
+.centerBoxer { padding: 30px; background: url(../img/bg1.jpg); background-size:cover; background-position: 50% 50%; background-repeat:no-repeat; border-radius: 10px; width: 100%; -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2); box-shadow: 0 5px 10px rgba(0, 0, 0, .2);}
+.Shadow-Popper { border-radius: 0px; padding:20px; -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2); box-shadow: 0 5px 10px rgba(0, 0, 0, .2);}
+.WithBorder { border:1px solid #CCC;}
+
+
+.SliderContent { padding-top: 190px; color: #FFF; padding-bottom: 25px; }
+
+.CENTERAREA { min-height: 300px; padding-top: 20px; padding-bottom: 20px; background:url("../img/sm-shadow.png") top center no-repeat; border-bottom: 1px solid #DDD;}
+
+.FOOTERAREA { background: #E8E9E8 url("../img/sm-shadow.png") top center no-repeat; min-height: 200px; padding-top: 35px; padding-bottom: 20px; }
+.RightsArea { padding-top: 15px; padding-bottom: 15px; border-top: 1px solid #DDD;}
+.BiggerText { font-size: 19px;}
+.XSmallText { font-size: 13px;}
+.bg-gray { background: #333; color: #BBB}
+/*.modal-content  {top:-150px; margin-bottom: 10%; margin-right: 0px; margin-left: 0px;} */
+.modal {padding: 0px; margin: 0px;}
+.SOCIALS { font-size:18px; color:#666; padding:8px; text-shadow: #FFF;  } .SOCIALS:hover { opacity: 0.6;}
+.AddressRows { margin-bottom: 10px; border-bottom: 1px solid #DDD; padding-bottom: 8px; min-height: 45px;}
+.IconBoxLeft { float: left; width: 50px; margin-right: 4px;}
+.AddressContent { float: left;}
+
+
+
+.menu_simple ul {margin:0; padding:0; width:100%; list-style-type: none;}
+.menu_simple ul li a {text-decoration: none; color:#333;  padding:10.5px 10px; font-size:15px; background:/* #002E5B*/ url(images/edge.png) left repeat-y; display:block; border-bottom: 1px solid #CCC;}
+.menu_simple ul li a:visited {color: #666; }
+.menu_simple ul li a:hover, .menu_simple ul li .current { color: white; background:#DC211A url(images/edge2.png) left repeat-y;}
+
+
+
+.SocialHouse { margin-top: 60px;}
+
+
+
+
+.OtherPagesTop { min-height: 100px; background: #444 /* url(../assets/img/blurred-image-1.jpg) right no-repeat */; background-position: 50% 50%;}
+.HOWBOX { border:1px solid #DDD; text-align: left; padding: 15px; font-size: 16px; border-radius: 2px; margin-bottom: 40px; -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2); box-shadow: 0 5px 10px rgba(0, 0, 0, .2);}
+.HOWBOX2 { border:1px solid #DDD; text-align: left; padding: 15px; font-size: 15px; border-radius: 2px; margin-bottom: 10px; background: #E9E9E9; font-weight: bold;}
+.BOXERWRAPIcons { vertical-align: middle; text-align: center; padding: 10px; height:auto; max-width: 50px; margin-top: -45px; margin-bottom: 15px; background: #4FA952; border-radius: 4px; color: #FFF; -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2); box-shadow: 0 5px 10px rgba(0, 0, 0, .2); font-size: 20px; }

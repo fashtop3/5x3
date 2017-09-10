@@ -1,89 +1,162 @@
-<!doctype html>
-<html lang="{{ config('app.locale') }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
 
-        <title>Glochis Club</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Glochis Club | A Glochis African Development Initiative | Empowering our youth</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+<!-- SEO CONFIG -->
+@include ('includes/seo')
+<!-- SEO CONFIG -->
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="js/font-awesome-4.7.0/css/font-awesome.min.css" />
 
-            .full-height {
-                height: 100vh;
-            }
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
 
-            .position-ref {
-                position: relative;
-            }
+    <!-- CSS Files -->
+    <link href="js/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <!-- <link href="assets/css/now-ui-kit.css" rel="stylesheet" /> -->
+    <link href="css/glochis.css" rel="stylesheet" />
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+</head>
 
-            .content {
-                text-align: center;
-            }
 
-            .title {
-                font-size: 84px;
-            }
+<body>
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
+<!-- NAVIGATION -->
+@include ('includes/navigation')
+<!-- NAVIGATION -->
+
+
+
+<!-- THE MAIN SLIDER
+<center>
+<div class="bose" style="min-height:600px;">
+
+    <div class="row container SliderContent">
+
+        <div class="col-md-7 Text-to-left">
+            <h2>Join the network of enterprising young Africans<br/><br/>
+            <span>Our main aim is to provide a platform that actively promotes entrepreneural development among our young people. This club is an effort of Glochis African Development Initiative (GADI&trade;)</span>
+            </h2>
+            <br/>
+            <a class="btn btn-danger btn-rounded" href="#">How it Works</a>
+            <a class="btn btn-simple btn-rounded" href="http://home.glochisclub.com/" rel="tooltip" title="Visit the Glochis African Development Initiative website" data-placement="bottom"><i class="now-ui-icons design_app"></i> GADI</a>
+        </div>
+
+        <div class="col-md-5">
+
+        </div>
+
+
+    </div>
+</div>
+</center>
+<!-- THE MAIN SLIDER -->
+
+
+
+
+
+
+
+<!-- START SLIDER -->
+<div id="main-carousel" class="carousel slide" data-ride="carousel">
+
+    <!-- carousel-indicators-->
+    <ol class="carousel-indicators">
+        <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#main-carousel" data-slide-to="1"></li>
+        <li data-target="#main-carousel" data-slide-to="2"></li>
+    </ol><!--/.carousel-indicators-->
+
+    <!-- carousel-inner-->
+    <div class="carousel-inner">
+
+
+
+        <div class="item active" style="background-image: url(img/slider-01.jpg); min-height:600px; background-size:cover; background-position: 50% 50%; background-repeat:no-repeat;">
+            <div class="container-fluid">
+                <div class="carousel-caption" style="max-width:450px;">
+                    <h2 class="">A gathering of young, vibrant and creative great minds to create the future of our dreams.</h2>
+                    <p><a class="btn btn-info" href="{{url('/signup')}}">&nbsp;<i class="fa fa-power-off"></i>&nbsp;&nbsp;Become a member</a></p>
                 </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Glochis Club
-                </div>
-
-
             </div>
         </div>
-    </body>
+
+
+        <div class="item" style="background-image: url(img/slider-02.jpg); min-height:600px; background-size:cover; background-position: 50% 50%; background-repeat:no-repeat;">
+            <div class="container-fluid">
+                <div class="carousel-caption" style="max-width:450px;">
+                    <h2>The youths may be just 30% of the society today, they are the 100% of our tomorrow.</h2>
+                    <p style="font-size:18px;">We must begin early to prepare them to bring them up to speed in the fast changing world.</p>
+                    <p><a class="btn btn-md btn-warning" href="{{url('/signup')}}">&nbsp;<i class="fa fa-power-off"></i>&nbsp;&nbsp;Join Glochis Club Now</a></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="item" style="background-image: url(img/slider-03.jpg); min-height:600px; background-size:cover; background-position: 50% 50%; background-repeat:no-repeat;">
+            <div class="container-fluid">
+                <div class="carousel-caption" style="max-width:450px;">
+                    <h2>If I knew what I know now at your age, I would have done things differently.</h2>
+                    <p style="font-size:20px;">I would have  achieved greater things. Get knowledge, the right knowledge.</p>
+                    <p><a class="btn btn-danger" href="{{url('/signup')}}">&nbsp;<i class="fa fa-power-off"></i>&nbsp;&nbsp;Start planning your future</a></p>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <!-- CONTROLS -->
+    <!-- CONTROLS -->
+
+</div>
+<!-- carousel-inner-->
+
+</div>
+<!-- END SLIDER -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- FOOTER -->
+@include ('includes/footer')
+<!-- FOOTER -->
+
+</body>
+
+
+
+
+
+
+
+
+
+
+<script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
+<script src="js/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!-- BINDING ALL JS AND INITIALIZING WEBSITE -->
+<script type="text/javascript" src="js/siteInit.js"></script>
+<!-- BINDING ALL JS AND INITIALIZING WEBSITE -->
+
 </html>

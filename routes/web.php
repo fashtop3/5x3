@@ -15,6 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/how', function (){
+    return view('how');
+});
+
+Route::get('/faq', function (){
+    return view('faq');
+});
+
+Route::get('/videos', 'VideoController@index');
+
+Route::get('logout', 'Auth\LoginController@logout');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -43,6 +55,7 @@ Route::group(['prefix' => config('backpack.base.route_prefix', 'admin')], functi
 
     })->name('receipt.view');
     CRUD::resource('message', 'Admin\MessageCrudController');
+    CRUD::resource('video', 'Admin\VideoCrudController');
 });
 
 

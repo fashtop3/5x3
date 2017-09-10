@@ -1,0 +1,21 @@
+.bose {  max-width:100%; height:auto; padding-bottom: 0px; margin-bottom: 0px; }
+/*.bose p { padding: 20px; color: #fff; font-weight: bold; background: rgba(0,0,0, .5); margin: 20px }
+.container { max-width: 960px; margin: 0 auto }
+*/
+ul { list-style: none; }
+ul li { display: inline; margin-right: 10px; }
+.bose-thumbs ul li a { float: left; border: 1px solid #ddd; padding: 3px; margin-right: 5px }
+.bose-thumbs ul li.active a { background-color: #ececec }
+.bose-thumbs ul li a img { float: left; margin-right: 10px }
+.bose-thumbs ul li a .info { display: inline-block; padding-right: 10px }
+.bose-thumbs ul li a .info .title { display: block }
+.bose-thumbs ul li a .info .description { font-weight: normal }
+
+pre { background-color: #222222; color: #ccc; padding: 15px; overflow-x: auto; }
+
+ol { margin: 20px 0px 0px 18px; }
+
+.previous, .next { margin-top: 230px; cursor: pointer; border:none; background:none /*url(images/bg001.png) repeat*/ ; position: absolute; color: #FFF; border-radius: 45px; z-index: 99999; padding: 5px; border:0px solid #FFF; }
+
+.previous { left:5px; } .previous:hover {left:0px; color: #F49E15; }
+.next { right:5px; } .next:hover {right:0px; color: #F49E15; }
