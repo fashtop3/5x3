@@ -63,7 +63,11 @@
             <div class="col-md-4">
             <div class="HOWBOX">
             <div class="BOXERWRAPIcons">2</div>
-            After registration, one is expected to pay the sum of N5000 to the company’s account. On receipt of the payment alert, the admin. confirms the registration and the member is immediately placed on the club matrix of 5x3
+            After registration, one is expected to pay the sum of N5000 to the company’s account:
+                <br><br>
+                <strong>Glochis Africa Dev Initiative <br>Zenith Bank: 1015309878</strong>
+                <br><br>
+                On receipt of the payment alert, the admin. confirms the registration and the member is immediately placed on the club matrix of 5x3
             </div>
             </div>
             
@@ -141,3 +145,4 @@
 <script type="text/javascript" src="js/siteInit.js"></script>
 <!-- BINDING ALL JS AND INITIALIZING WEBSITE -->
 </html>
+

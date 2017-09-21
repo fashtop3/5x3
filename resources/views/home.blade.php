@@ -12,12 +12,12 @@
         <section class="content">
             <!-- Small boxes Row -->
             <div class="row">
-                <div class="col-lg-3 col-xs-6">
+                <div class="col-lg-6 col-xs-12">
                     <!-- small box -->
                     <div class="small-box bg-aqua">
                         <div class="inner">
-                            <h3>Glochis Club</h3>
-                            <p>First Bank 0029560156</p>
+                            <h3>Glochis Africa Dev Initiative</h3>
+                            <p>Zenith Bank: 1015309878</p>
                         </div>
                     </div>
                 </div>
@@ -67,23 +67,23 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-xs-6">
-                    <!-- small box -->
-                    <div class="small-box bg-red">
-                        <div class="inner">
-                            <h3>Profile</h3>
+                {{--<div class="col-lg-3 col-xs-6">--}}
+                    {{--<!-- small box -->--}}
+                    {{--<div class="small-box bg-red">--}}
+                        {{--<div class="inner">--}}
+                            {{--<h3>Profile</h3>--}}
 
-                                @if(is_null($user->data))
-                                  <p>Incomplete User Profile</p>
-                                @else
-                                  <p>Profile Complete</p>
-                                @endif
-                        </div>
-                            @if(is_null($user->data))
-                              <a href="{{ route('profile') }}" class="small-box-footer">Update Profile <i class="fa fa-arrow-circle-right"></i></a>
-                            @endif
-                    </div>
-                </div>
+                                {{--@if(is_null($user->data))--}}
+                                  {{--<p>Incomplete User Profile</p>--}}
+                                {{--@else--}}
+                                  {{--<p>Profile Complete</p>--}}
+                                {{--@endif--}}
+                        {{--</div>--}}
+                            {{--@if(is_null($user->data))--}}
+                              {{--<a href="{{ route('profile') }}" class="small-box-footer">Update Profile <i class="fa fa-arrow-circle-right"></i></a>--}}
+                            {{--@endif--}}
+                    {{--</div>--}}
+                {{--</div>--}}
                 <!-- ./col -->
             </div>
             <!-- End Small Boxes Row/ -->
@@ -299,3 +299,4 @@
         <!-- /.content -->
 
 @stop
+
