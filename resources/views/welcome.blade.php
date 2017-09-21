@@ -72,14 +72,25 @@
         <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
         <li data-target="#main-carousel" data-slide-to="1"></li>
         <li data-target="#main-carousel" data-slide-to="2"></li>
+        <li data-target="#main-carousel" data-slide-to="3"></li>
     </ol><!--/.carousel-indicators-->
 
     <!-- carousel-inner-->
     <div class="carousel-inner">
 
 
+        <div class="item active" style="background-image: url(img/slider-04.jpg); min-height:600px; background-size:cover; background-position: 50% 50%; background-repeat:no-repeat;">
+            <div class="container-fluid">
+                <div class="carousel-caption" style="max-width:450px;">
+                    <h2 class="">Join the network of enterprising young Africans</h2>
+                    <p>Our main aim is to provide a platform that actively promotes entrepreneurial development among our young people. This club is an effort of Glochis African Development Initiative (GADI&trade;)
+                        <br><br>
+                        <a class="btn btn-info" href="{{url('/signup')}}">&nbsp;<i class="fa fa-power-off"></i>&nbsp;&nbsp;Become a member</a></p>
+                </div>
+            </div>
+        </div>
 
-        <div class="item active" style="background-image: url(img/slider-01.jpg); min-height:600px; background-size:cover; background-position: 50% 50%; background-repeat:no-repeat;">
+        <div class="item" style="background-image: url(img/slider-01.jpg); min-height:600px; background-size:cover; background-position: 50% 50%; background-repeat:no-repeat;">
             <div class="container-fluid">
                 <div class="carousel-caption" style="max-width:450px;">
                     <h2 class="">A gathering of young, vibrant and creative great minds to create the future of our dreams.</h2>
@@ -160,3 +171,4 @@
 <!-- BINDING ALL JS AND INITIALIZING WEBSITE -->
 
 </html>
+
