@@ -29,8 +29,8 @@ class CreateUsersTable extends Migration
                 ->on('users');
             $table->integer('level_assert')->nullable()->unsigned();
 
-            $table->boolean('payment')->default(0);
-            $table->boolean('status')->default(1);
+            $table->boolean('payment')->default(false);
+            $table->boolean('status')->default(true);
             $table->rememberToken();
             $table->timestamps();
         });

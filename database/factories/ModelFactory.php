@@ -18,11 +18,11 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('ericson'),
+        'password' => $password ?: $password = bcrypt('Password@1$'),
         'level_id' => null,
         'upline_id' => null,
         'level_assert' => 0,
-        'payment' => 1,
+        'payment' => false,
         'remember_token' => str_random(10),
     ];
 });

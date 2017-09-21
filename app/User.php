@@ -15,12 +15,15 @@ class User extends Authenticatable
     use CrudTrait; // <----- this
     use HasRoles; // <------ and this
 
+    protected $payment;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
+
+
     protected $fillable = [
         'name', 'email', 'password' , 'payment',
     ];
@@ -95,5 +98,21 @@ class User extends Authenticatable
         }
 
         return $steps;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPayment()
+    {
+        return $this->payment;
+    }
+
+    /**
+     * @param mixed $payment
+     */
+    public function setPayment($payment)
+    {
+        $this->payment = $payment;
     }
 }

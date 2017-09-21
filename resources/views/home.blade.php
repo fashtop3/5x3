@@ -97,16 +97,12 @@
                         <div class="col-md-6">
                         <div class="box box-solid">
                                     <div class="box-header with-border">
-                                        @if($user->payment == false)
-                                          <h3 class="box-title">Activate Account</h3>
-                                        @else
                                           <h3 class="box-title">Account Details</h3>
-                                        @endif
                                     </div>
                                     <!-- /.box-header -->
                                     <div class="box-body">
 
-                                                @if($user->payment == false)
+                                                @if(is_null($user->payment))
                                             <div class="col-md-12">
                                                         @if(is_null($receipt))
                                                             <p>Already Made Payment?</p>
