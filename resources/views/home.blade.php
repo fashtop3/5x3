@@ -102,7 +102,7 @@
                                     <!-- /.box-header -->
                                     <div class="box-body">
 
-                                                @if(is_null($user->payment))
+                                                @if(is_null($user->paid))
                                             <div class="col-md-12">
                                                         @if(is_null($receipt))
                                                             <p>Already Made Payment?</p>
@@ -167,7 +167,7 @@
                                                                         <tr class="text-center">
                                                                             <td>{{ $receipt->id }}</td>
                                                                             {{--                                <td>{{ $receipt->upload }}</td>--}}
-                                                                            <td>{!! $user->payment ? '<span class="label label-success">Yes</span>' : '<span class="label label-danger">No</span>' !!}</td>
+                                                                            <td>{!! $user->paid ? '<span class="label label-success">Yes</span>' : '<span class="label label-danger">No</span>' !!}</td>
                                                                             <td>{{ $receipt->created_at->diffForHumans() }}</td>
                                                                             <td></td>
                                                                         </tr>
@@ -247,7 +247,7 @@
                                                 @for($i=3; $i>=0; $i--)
                                                 <tr class="text-center">
                                                     <td class="text-center">{{ $i }}</td>
-                                                    @if(!$user->payment)
+                                                    @if(!$user->paid)
                                                         <td class="text-danger">Inactive</td>
                                                     @else
                                                         <td>
