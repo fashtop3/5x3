@@ -86,7 +86,7 @@ class User extends Authenticatable
         $DLUsers = function (User &$user) {
             return User::where(function ($query) use(&$user) {
                 $query->where('upline_id', $user->id)
-                    ->wherePayment(1)
+                    ->wherePaid(1)
                     ->whereNotIn('id', [1, $user->id]);
             })->get();
         };
