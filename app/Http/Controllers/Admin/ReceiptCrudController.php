@@ -141,7 +141,7 @@ class ReceiptCrudController extends CrudController
     public function update(UpdateRequest $request)
     {
         $receipt = Receipt::findOrFail($request->get('id'));
-        $receipt->user()->update(['payment' => $request->get('confirm')/*, 'level_assert' => 0*/]);
+        $receipt->user()->update(['paid' => $request->get('confirm')/*, 'level_assert' => 0*/]);
 
         // your additional operations before save here
         $redirect_location = parent::updateCrud();
