@@ -119,7 +119,7 @@ class User extends Authenticatable
 
     public function getConfirmedAttribute()
     {
-        return $this->payment ? "Confirmed" : "Pending";
+        return $this->payment ? $this->payment : $this->payment;
     }
 
 }
