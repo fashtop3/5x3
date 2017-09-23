@@ -34,6 +34,13 @@ class UserCrudController extends CrudController
         $this->crud->removeButton('delete');
         $this->crud->setColumns(['name' => "name",  'Email' => "email", 'Payment' => 'payment', ]);
 
+
+        $this->crud->addField([
+            'name' => 'payment',
+            'label' => 'Payment Status',
+            'type' => "checkbox",
+        ]);
+
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
         // $this->crud->addFields($array_of_arrays, 'update/create/both');
