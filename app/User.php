@@ -15,7 +15,7 @@ class User extends Authenticatable
     use CrudTrait; // <----- this
     use HasRoles; // <------ and this
 
-    protected $payment;
+//    protected $payment;
 
     /**
      * The attributes that are mass assignable.
@@ -25,7 +25,7 @@ class User extends Authenticatable
 
 
     protected $fillable = [
-        'name', 'email', 'password' , 'payment',
+        'name', 'email', 'password' , 'paid',
     ];
 
     /**
@@ -119,7 +119,7 @@ class User extends Authenticatable
 
     public function getPaymentAttribute()
     {
-        return $this->paid;// ? "Confirmed" : "Pending";
+        return $this->paid ? "Confirmed" : "Pending";
     }
 
 }

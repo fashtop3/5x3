@@ -36,7 +36,7 @@ class UserCrudController extends CrudController
 
 
         $this->crud->addField([
-            'name' => 'payment',
+            'name' => 'paid',
             'label' => 'Payment Status',
             'type' => "checkbox",
         ]);
