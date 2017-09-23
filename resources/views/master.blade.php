@@ -55,8 +55,8 @@
                     </a>
 
                     <ul class="dropdown-menu" role="menu">
-                        @if(auth()->user()->hasRole('Super Admin') || auth()->user()->hasRole('Admin'))
-                            <li><a href="{{ url('/admin/dashboard') }}" title="Dashboard"><i class="fa fa-tachometer"></i> Admin Dashboard</a></li>
+                        @if(auth()->user()->hasRole('SuperAdmin') || auth()->user()->hasRole('Admin'))
+                            <li><a href="{{ url('/5x3admin/dashboard') }}" title="Dashboard"><i class="fa fa-tachometer"></i> Admin Dashboard</a></li>
                         @endif
                         <li><a href="{{ route('home') }}" title="Dashboard"><i class="fa fa-tachometer"></i> Main Dashboard</a></li>
 
