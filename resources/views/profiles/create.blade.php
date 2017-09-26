@@ -10,9 +10,9 @@
         <div class="row">
             <div class="col-md-12">
 
-                @if(Session::has('p-success'))
+                @if(Session::has('message'))
                     <div class="row col-md-12">
-                        <div class="alert alert-success">{{ session('p-success') }}</div>
+                        <div class="alert alert-success">{{ session('message') }}</div>
                     </div>
                 @elseif (Session::has('p-error'))
                     <div class="row col-md-12">
