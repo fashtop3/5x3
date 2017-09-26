@@ -16,7 +16,7 @@ class ProfileController extends Controller
 
     public function store(Request $request)
     {
-      //dd(json_encode($request->get('data')));
+      //dd(json_encode($request->get
         $user = auth()->user();
         $user->data = $request->get('data');
         $user->save();
