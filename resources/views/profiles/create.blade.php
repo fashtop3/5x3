@@ -123,69 +123,17 @@
                                             {{--<span class="help-block">Click on input field to get datepicker</span>--}}
                                         </div>
                                     </div>
-
-
-                                </div>
-                                <div class="col-md-6">
-
-                                    <div class="form-group">
-                                        <label class="col-md-5 control-label">Account Name</label>
-                                        <div class="col-md-7">
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><span class="fa fa-credit-card"></span></span>
-                                                {{--<input type="text" class="form-control datepicker" value="2014-11-01">--}}
-                                                <input type="text" name="data[acct_name]"
-                                                       class="form-control"
-                                                       value="{{ old('data.acct_name', @$user->data->acct_name) }}" required>
-                                            </div>
-                                            {{--<span class="help-block">Click on input field to get datepicker</span>--}}
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="col-md-5 control-label">Account Number</label>
-                                        <div class="col-md-7">
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><span class="fa fa-money"></span></span>
-                                                {{--<input type="text" class="form-control datepicker" value="2014-11-01">--}}
-                                                <input type="text" name="data[acct_number]"
-                                                       class="form-control"
-                                                        value="{{ old('data.acct_name', @$user->data->acct_name) }}" required>
-                                            </div>
-                                            {{--<span class="help-block">Click on input field to get datepicker</span>--}}
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-group">
-                                        <label class="col-md-5 control-label">Bank</label>
-                                        <div class="col-md-7">
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><span class="fa fa-building"></span></span>
-                                                {{--<input type="text" class="form-control datepicker" value="2014-11-01">--}}
-                                                <select name="data[bank_id]" class="form-control" required>
-                                                    @foreach(\App\Bank::all() as $bank)
-                                                        <option value="{{ $bank->id }}"
-                                                                {{ old('data.bank_id', @@$user->data->bank_id)==$bank->id? "selected='selected'":"" }}
-                                                        >{{ $bank->name }}</option>
-                                                    @endforeach
-
-                                                </select>
-                                            </div>
-                                            {{--<span class="help-block">Click on input field to get datepicker</span>--}}
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-
+                                    <div>
+                                       <button class="btn btn-primary pull-right">Submit</button>
                                     </div>
 
                                 </div>
+          
 
                             </div>
 
                             <div class="clearfix">
-                                <button class="btn btn-primary pull-right">Submit</button>
+                                
                             </div>
 
                         </div>
