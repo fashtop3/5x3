@@ -96,7 +96,7 @@ class PromoteUsers extends Command
                 return 3;
                 break;
 
-            case is_null($user->level_id) && $user->payment:
+            case is_null($user->level_id) && $user->paid:
                 return 0;
                 break;
 
@@ -113,7 +113,7 @@ class PromoteUsers extends Command
     {
         $LZUNoUpline = function (User &$user) {
             return User::where(function ($query) use ($user) {
-                $query->wherePayment(1)
+                $query->wherePaid(1)
                     ->whereNull('upline_id')
                     ->whereNotIn('id', [1, $user->id]);
             })->get();
@@ -121,7 +121,7 @@ class PromoteUsers extends Command
 
         $recallUser = function () {
             return User::where(function ($query) {
-                $query->wherePayment(1)
+                $query->wherePaid(1)
                     ->whereNotNull('upline_id')
                 ->whereNull('level_assert')
                     ->whereNotIn('id', [1]);
@@ -180,7 +180,7 @@ class PromoteUsers extends Command
         $DLUsers = function (User &$user) {
             return User::where(function ($query) use(&$user) {
                 $query->where('upline_id', $user->id)
-                    ->wherePayment(1)
+                    ->wherePaid(1)
                     ->whereNotIn('id', [1, $user->id]);
             })->get();
         };
@@ -209,7 +209,7 @@ class PromoteUsers extends Command
             $query->whereNotNull('upline_id')
                 ->whereNotNull('level_id')
                 ->whereNotNull('level_assert')
-                ->wherePayment(1)
+                ->wherePaid(1)
                 ->whereNotIn('id', [1]);
         })->get();
 
