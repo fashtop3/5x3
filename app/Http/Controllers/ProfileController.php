@@ -16,12 +16,12 @@ class ProfileController extends Controller
 
     public function store(Request $request)
     {
-      //dd(json_encode($request->get
         $user = auth()->user();
         $user->data = $request->get('data');
         $user->save();
 
-        return Redirect::back()->with('message', 'Profile Created or Updated Successfully');
+        return redirect()->route('home');
+        //return Redirect::back()->with('message', 'Profile Created or Updated Successfully');
     }
 
 
