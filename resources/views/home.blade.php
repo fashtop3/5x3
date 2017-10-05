@@ -16,7 +16,7 @@
                     <!-- small box -->
                     <div class="small-box bg-aqua">
                         <div class="inner">
-                            <h3>Glochis Africa Dev Initiative</h3>
+                            <h3 style="font-size:18px;">Glochis Africa Dev Initiative</h3>
                             <p>Zenith Bank: 1015309878</p>
                         </div>
                     </div>
